@@ -1,0 +1,45 @@
+<div class="container">
+  <mat-icon class="currency-icon">currency_exchange</mat-icon>
+  <form>
+    <mat-form-field appearance="outline" hideRequiredMarker>
+      <mat-label>Nome</mat-label>
+      <input matInput required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" hideRequiredMarker>
+      <mat-label>Sobrenome</mat-label>
+      <input matInput required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" hideRequiredMarker>
+      <mat-label>E-mail</mat-label>
+      <input matInput [formControl]="email" required />
+      <mat-error *ngIf="email.invalid">{{ getEmailErrorMessage() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" hideRequiredMarker>
+      <mat-label>Celular</mat-label>
+      <input matInput required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" hideRequiredMarker>
+      <mat-label>Senha</mat-label>
+      <input matInput [type]="passwordIsHide ? 'password' : 'text'" required />
+      <button
+        type="button"
+        mat-icon-button
+        matSuffix
+        (click)="passwordIsHide = !passwordIsHide"
+      >
+        <mat-icon>{{
+          passwordIsHide ? "visibility_off" : "visibility"
+        }}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <div class="btn-container">
+      <button mat-flat-button color="primary">Cadastrar</button>
+    </div>
+  </form>
+  <span>Já possui uma conta?  <a routerLink="/sign-in">Entre</a>.</span>
+</div>

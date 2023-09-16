@@ -1,0 +1,17 @@
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$sem-crise-primary: mat.define-palette(mat.$blue-palette);
+$sem-crise-accent: mat.define-palette(mat.$yellow-palette);
+
+$sem-crise-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $sem-crise-primary,
+      accent: $sem-crise-accent,
+    ),
+  )
+);
+
+@include mat.all-component-themes($sem-crise-theme);
